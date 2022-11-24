@@ -37,7 +37,7 @@
 ### 13.Поместите туда тестовый файл, например wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz
 >![img_18.png](img_18.png)
 ### 14. Прикрепите вывод lsblk 
-![img_17.png](img_17.png)
+>![img_17.png](img_17.png)
 ### 15. Протестируйте целостность файла:  
 >root@vagrant:~# gzip -t /tmp/new/test.gz  
 >root@vagrant:~# echo $?  
@@ -47,9 +47,9 @@
 ### 16. Используя pvmove, переместите содержимое PV с RAID0 на RAID1.
 >![img_20.png](img_20.png)
 ### 17. Сделайте --fail на устройство в вашем RAID1 md.
-![img_21.png](img_21.png)
+>![img_21.png](img_21.png)
 ### 18.Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.
-![img_22.png](img_22.png)
+>![img_22.png](img_22.png)
 ### 19. Протестируйте целостность файла, несмотря на "сбойный" диск он должен продолжать быть доступен:  
 > root@vagrant:~# gzip -t /tmp/new/test.gz  
 root@vagrant:~# echo $?  
