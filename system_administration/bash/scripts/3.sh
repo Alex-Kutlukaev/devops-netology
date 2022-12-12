@@ -9,4 +9,4 @@ date >> hosts.log
       echo "      " для хоста $h состояние = $? >> hosts.log
     done
     sleep 5
-done
+done1
