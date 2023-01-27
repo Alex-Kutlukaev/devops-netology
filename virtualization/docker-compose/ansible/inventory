@@ -1,0 +1,6 @@
+[nodes:children]
+manager
+
+[manager]
+test-centos ansible_host=158.160.50.85
+

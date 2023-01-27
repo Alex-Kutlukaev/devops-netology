@@ -25,7 +25,7 @@ data "yandex_vpc_subnet" "default_a" {
 # ресурс "yandex_compute_instance" т.е. сервер
 # Terraform будет знать его по имени "yandex_compute_instance.default"
 resource "yandex_compute_instance" "node" {
-  name         = "test-centos"
+  name         = "test-centos2"
   platform_id  = "standard-v1" # тип процессора (Intel Broadwell)
 
   resources {

@@ -1,0 +1,78 @@
+# # - name: Install the latest version of docker
+# #   ansible.builtin.package:
+# #     name:
+# #       - docker
+# #       - docker-compose
+# #     state: latest
+
+# # - name: Enable docker daemon
+# #         systemd:
+# #           name: docker
+# #           state: started
+# #           enabled: yes
+
+# # - name: craete directory
+# #   file:
+# #     path=/opt/app
+# #     mode=0755
+# #     owner=root
+# #     group=root
+# #     state=directory
+
+# # - name: Copy docker-compose grafana
+# #   ansible.builtin.copy:
+# #     src: /Users/alekseykutlukaev/Documents/devops-netology/virtualization/docker-compose/ansible/docker-compose.yml
+# #     dest: /opt/app/docker-compose.yml
+
+# # - name: Start app
+# #   ansible.builtin.shell:
+# #     cmd: cd /opt/app/ && docker-compose up -d
+
+
+#       - name: Create directory for ssh-keys
+#         file: state=directory mode=0700 dest=/root/.ssh/
+
+#       - name: Adding rsa-key in /root/.ssh/authorized_keys
+#         copy: src=~/.ssh/id_rsa.pub dest=/root/.ssh/authorized_keys owner=root mode=0600
+#         ignore_errors: yes
+
+#       - name: Checking DNS
+#         command: host -t A google.com
+
+#       - name: Installing docker package
+#         yum: >
+#           name={{ item }}
+#           state=present
+#           update_cache=yes
+#         with_items:
+#           - docker
+#           - docker-compose
+
+#       - name: Enable docker daemon
+#         systemd:
+#           name: docker
+#           state: started
+#           enabled: yes
+      
+#       - name: craete directory
+#         file:
+#           path=/opt/stack
+#           mode=0755
+#           owner=root
+#           group=root
+#           state=directory
+
+#       - name: Synchronization
+#         copy:
+#           src: /Users/alekseykutlukaev/Documents/devops-netology/virtualization/docker-compose/stack/
+#           dest: "/opt/stack/"
+#           owner: root
+#           group: root
+#           mode: 0644
+#         become: true
+
+#       - name: Pull all images in compose
+#         command: docker-compose -f /opt/stack/docker-compose.yml pull
+
+#       - name: Up all services in compose
+#         command: docker-compose -f /opt/stack/docker-compose.yml up -d

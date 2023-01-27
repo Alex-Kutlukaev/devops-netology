@@ -15,5 +15,14 @@
         "ssh_username": "centos",
         "ssh_password": "centos"
       }
-    ]
+    ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo yum -y update",
+        "sudo yum -y install bridge-utils bind-utils iptables curl net-tools tcpdump rsync telnet openssh-server"
+      ],
+      "type": "shell"
+    }
+  ]
 }

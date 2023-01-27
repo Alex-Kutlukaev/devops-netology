@@ -4,78 +4,32 @@
 
 > Решение:  
 ![img.png](img.png)
-![img_4.png](img_4.png)
+![img_12.png](img_12.png)
 ![img_2.png](img_2.png)
 ![img_7.png](img_7.png)
 
-### 2. Создать вашу первую виртуальную машину в YandexCloud.
-> Для получения зачета, вам необходимо предоставить cкриншот страницы свойств созданной ВМ из личного кабинета YandexCloud.
+### 2. Создать вашу первую виртуальную машину в YandexCloud с помощью terraform. Используйте terraform код в директории (src/terraform)
 
-> Решение1:  
-![img_3.png](img_3.png)
-![img_8.png](img_8.png)
-![img_9.png](img_9.png)
-
-> Решение2:
-> пишем терраформ файл:  
-```terraform
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-}
-
-provider "yandex" {
-  token     = "y0_AgAAAAARrkq8AATuwQAAAADalvwSK1AuHxLGTPm459rQ5gZjDd0JYX4" # OAuth-токен яндекса
-  cloud_id  = "b1gtob9reohhtoq182pj"
-  folder_id = "b1g7ske3eoqq2v0bqnub"
-  zone      = "ru-central1-a"
-}
-
-
-data "yandex_compute_image" "ubuntu" {
-  family = "ubuntu-2204-lts"
-}
-
-data "yandex_vpc_subnet" "default_a" {
-  name = "default-ru-central1-a"  
-}
-
-resource "yandex_compute_instance" "node" {
-  name         = "test-ubuntu"
-  platform_id  = "standard-v1" 
-
-  resources {
-    core_fraction = 5 # Гарантированная доля vCPU
-    cores         = 2 # vCPU
-    memory        = 1 # RAM
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd8c5uabtiabvlcvdr97"
-      size = 10 # Размер диска виртуалки
-    }
-  }
-
-  network_interface {
-    subnet_id = "e9b5jvrjarodi9pbc20c"
-    nat = true # автоматически установить динамический ip
-  }
-}
-```
->проверяем конфиг на ошибки:  
->>terraform validate  
+Для получения зачета, вам необходимо предоставить вывод команды terraform apply и страницы свойств созданной ВМ из личного кабинета YandexCloud.
+> Решение:
+![img_16.png](img_16.png)
+![img_17.png](img_17.png)
 > 
->выводим список создаваемых ресурсов с параметрами:  
->> terraform plan  
 > 
-> запускаем создание ресурса: 
->> terraform apply  
+### 3. С помощью ansible и docker-compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana . Используйте ansible код в директории (src/ansible)
 
-![img_10.png](img_10.png)
+Для получения зачета вам необходимо предоставить вывод команды "docker ps" , все контейнеры, описанные в (docker-compose), должны быть в статусе "Up".
+> Решение:
+> ![img_18.png](img_18.png)
+
+### 3.Создать ваш первый готовый к боевой эксплуатации компонент мониторинга, состоящий из стека микросервисов.
+
+Для получения зачета, вам необходимо предоставить:
+
+Скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже
+
+>Ответ:
+>![img_19.png](img_19.png)
 
 
 
