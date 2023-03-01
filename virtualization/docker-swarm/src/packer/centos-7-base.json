@@ -1,0 +1,28 @@
+{
+    "builders": [
+      {
+        "type": "yandex",
+        "token": "y0_AgAAAAARrkq8AATuwQAAAADalvwSK1AuHxLGTPm459rQ5gZjDd0JYX4",
+        "folder_id": "b1g7ske3eoqq2v0bqnub",
+        "zone": "ru-central1-a",
+        "image_name": "centos-7-base",
+        "image_family": "centos-base",
+        "image_description": "CentOS8 base image",
+        "source_image_family": "centos-7",
+        "subnet_id": "e9bfpvie9fors3cmheia",
+        "use_ipv4_nat": true,
+        "disk_type": "network-ssd",
+        "ssh_username": "centos",
+        "ssh_password": "centos"
+      }
+    ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo yum -y update",
+        "sudo yum -y install bridge-utils bind-utils iptables curl net-tools tcpdump rsync telnet openssh-server"
+      ],
+      "type": "shell"
+    }
+  ]
+}
