@@ -43,8 +43,9 @@ services:
       - "5050:80"
 ```
 Подключаюсь  
-docker exec -it postgre psql -U admin -d test_database
-команды в субд
+> docker exec -it postgre psql -U admin -d test_database  
+
+команды в субд  
 - список бд это: \l[+] [PATTERN] list databases
 - подключение к бд это: \c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo}
                          connect to new database (currently "test_database")
