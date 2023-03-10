@@ -42,7 +42,7 @@ services:
     ports:
       - "5050:80"
 ```
-Подключаюсь
+Подключаюсь  
 docker exec -it postgre psql -U admin -d test_database
 команды в субд
 - список бд это: \l[+] [PATTERN] list databases
