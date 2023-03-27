@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  elasticsearch:
+    container_name: es
+    image: alexeykutlukaev/es
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - network.host=localhost
+      - node.name=netology_test
+      - cluster.name=netology_cluster
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+
+  kibana:
+    container_name: kibana
+    image: kibana:7.14.0
+    environment:
+      - 'elasticsearch.hosts: ["http://localhost:9200"]'
+    networks:
+      - es-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+networks:
+  es-net:
+    driver: bridge
+
+
